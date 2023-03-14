@@ -29,7 +29,11 @@ module.exports = (sequelize, DataTypes) => {
   result.init({
     grade: DataTypes.INTEGER,
     studentId: DataTypes.INTEGER,
-    examId: DataTypes.INTEGER
+    examId: DataTypes.INTEGER,
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'result'

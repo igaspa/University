@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      adress: {
+      address: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -37,6 +37,9 @@ module.exports = {
       department_id: {
         type: Sequelize.INTEGER,
         allowNull: true
+      },
+      deleted: {
+        type: Sequelize.BOOLEAN
       },
       created_at: {
         allowNull: false,

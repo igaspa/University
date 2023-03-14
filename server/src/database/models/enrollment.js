@@ -28,7 +28,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   enrollment.init({
     studentId: DataTypes.INTEGER,
-    courseId: DataTypes.INTEGER
+    courseId: DataTypes.INTEGER,
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'enrollment'

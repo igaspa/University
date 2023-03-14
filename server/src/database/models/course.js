@@ -52,7 +52,11 @@ module.exports = (sequelize, DataTypes) => {
   course.init({
     name: DataTypes.STRING,
     creditHours: DataTypes.INTEGER,
-    majorId: DataTypes.INTEGER
+    majorId: DataTypes.INTEGER,
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'course',

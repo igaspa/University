@@ -34,7 +34,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   major.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'major',

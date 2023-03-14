@@ -17,6 +17,9 @@ module.exports = {
         primaryKey: true,
         allowNull: false
       },
+      deleted: {
+        type: Sequelize.BOOLEAN
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

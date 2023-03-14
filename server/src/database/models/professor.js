@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
       get () {
         return 'professor';
       }
+    },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   }, {
     sequelize,
