@@ -13,21 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       exam.belongsToMany(models.student, {
         through: models.result,
         foreignKey: {
-          name: 'exam_id',
-          field: 'exam_id'
+          name: 'examId',
+          field: 'examId'
         }
       });
       exam.belongsTo(models.course, {
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         }
       });
       exam.hasMany(models.result,
         {
           foreignKey: {
-            name: 'exam_id',
-            field: 'exam_id'
+            name: 'examId',
+            field: 'examId'
           }
         });
     }
@@ -38,15 +38,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: true
     },
-    course_id: DataTypes.INTEGER
+    courseId: DataTypes.INTEGER
   }, {
     sequelize,
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
-    modelName: 'exam',
-    freezeTableName: true
+    modelName: 'exam'
   });
   return exam;
 };

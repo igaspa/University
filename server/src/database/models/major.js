@@ -12,22 +12,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       major.hasMany(models.student, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
       major.hasMany(models.department, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
       major.hasMany(models.course, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
@@ -38,11 +38,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'major',
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
-    freezeTableName: true,
     indexes: [
       {
         unique: true,

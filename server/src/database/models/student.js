@@ -13,52 +13,52 @@ module.exports = (sequelize, DataTypes) => {
       student.belongsToMany(models.exam, {
         through: models.result,
         foreignKey: {
-          name: 'student_id',
-          field: 'student_id'
+          name: 'studentId',
+          field: 'studentId'
         },
         onDelete: 'cascade'
       });
       student.belongsToMany(models.course, {
         through: models.enrollment,
         foreignKey: {
-          name: 'student_id',
-          field: 'student_id'
+          name: 'studentId',
+          field: 'studentId'
         },
         onDelete: 'cascade'
       });
       student.belongsTo(models.major, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
       student.hasMany(models.result,
         {
           foreignKey: {
-            name: 'student_id',
-            field: 'student_id'
+            name: 'studentId',
+            field: 'studentId'
           },
           onDelete: 'cascade'
         });
       student.hasMany(models.enrollment,
         {
           foreignKey: {
-            name: 'student_id',
-            field: 'student_id'
+            name: 'studentId',
+            field: 'studentId'
           },
           onDelete: 'cascade'
         });
     }
   }
   student.init({
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    adress: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
-    major_id: DataTypes.INTEGER,
+    address: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    majorId: DataTypes.INTEGER,
     role: {
       type: DataTypes.VIRTUAL,
       get () {
@@ -67,12 +67,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
     modelName: 'student',
-    freezeTableName: true,
     indexes: [
       {
         unique: true,

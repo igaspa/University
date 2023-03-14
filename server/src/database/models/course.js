@@ -12,38 +12,38 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       course.hasMany(models.exam, {
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         },
         onDelete: 'cascade'
       });
       course.belongsToMany(models.student, {
         through: models.enrollment,
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         },
         onDelete: 'cascade'
       });
       course.belongsToMany(models.professor, {
         through: models.lecturer,
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         },
         onDelete: 'cascade'
       });
       course.belongsTo(models.major, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
       course.hasMany(models.enrollment, {
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         },
         onDelete: 'cascade'
       });
@@ -51,16 +51,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   course.init({
     name: DataTypes.STRING,
-    credit_hours: DataTypes.INTEGER,
-    major_id: DataTypes.INTEGER
+    creditHours: DataTypes.INTEGER,
+    majorId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'course',
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
-    freezeTableName: true,
     indexes: [
       {
         unique: true,

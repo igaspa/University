@@ -12,31 +12,26 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       lecturer.belongsTo(models.professor, {
         foreignKey: {
-          name: 'professor_id',
-          field: 'professor_id'
+          name: 'professorId',
+          field: 'professorId'
         },
         onDelete: 'cascade'
       });
       lecturer.belongsTo(models.course, {
         foreignKey: {
-          name: 'course_id',
-          field: 'course_id'
+          name: 'courseId',
+          field: 'courseId'
         },
         onDelete: 'cascade'
       });
     }
   }
   lecturer.init({
-    professor_id: DataTypes.INTEGER,
-    course_id: DataTypes.INTEGER
+    professorId: DataTypes.INTEGER,
+    courseId: DataTypes.INTEGER
   }, {
     sequelize,
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
-    modelName: 'lecturer',
-    freezeTableName: true
+    modelName: 'lecturer'
   });
   return lecturer;
 };

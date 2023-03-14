@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       department.hasMany(models.professor, {
         foreignKey: {
-          name: 'department_id',
-          field: 'department_id'
+          name: 'departmentId',
+          field: 'departmentId'
         },
         onDelete: 'cascade'
       });
       department.belongsTo(models.major, {
         foreignKey: {
-          name: 'major_id',
-          field: 'major_id'
+          name: 'majorId',
+          field: 'majorId'
         },
         onDelete: 'cascade'
       });
@@ -28,15 +28,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   department.init({
     name: DataTypes.STRING,
-    major_id: DataTypes.INTEGER
+    majorId: DataTypes.INTEGER
   }, {
     sequelize,
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
     modelName: 'department',
-    freezeTableName: true,
     indexes: [
       {
         unique: true,

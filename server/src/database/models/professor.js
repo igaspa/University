@@ -12,29 +12,29 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       professor.belongsTo(models.department, {
         foreignKey: {
-          name: 'department_id',
-          field: 'department_id'
+          name: 'departmentId',
+          field: 'departmentId'
         },
         onDelete: 'cascade'
       });
       professor.belongsToMany(models.course, {
         through: models.lecturer,
         foreignKey: {
-          name: 'professor_id',
-          field: 'professor_id'
+          name: 'professorId',
+          field: 'professorId'
         },
         onDelete: 'cascade'
       });
     }
   }
   professor.init({
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    adress: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
-    department_id: DataTypes.INTEGER,
+    address: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    departmentId: DataTypes.INTEGER,
     role: {
       type: DataTypes.VIRTUAL,
       get () {
@@ -43,12 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    underscored: true,
-    timestamps: true,
-    updatedAt: 'updated_at',
-    createdAt: 'created_at',
     modelName: 'professor',
-    freezeTableName: true,
     indexes: [
       {
         unique: true,
