@@ -1,7 +1,7 @@
 const { major, student } = require('../database/models');
 const { INCLUDE_USER_LIST } = require('../utils/helper');
 const crudController = require('./crud');
-const { searchByName } = require('../services/searchService');
+const { searchByName } = require('../services/filter');
 
 exports.getAllMajors = async (req, res) => {
   const searchedName = searchByName(req.query);
