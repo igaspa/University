@@ -12,7 +12,8 @@ module.exports = {
       phone_number: '916-336-1467',
       department_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Deidre',
       last_name: 'Seston',
@@ -22,7 +23,8 @@ module.exports = {
       phone_number: '577-854-0667',
       department_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Rora',
@@ -33,7 +35,8 @@ module.exports = {
       phone_number: '264-782-4223',
       department_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Leigh',
@@ -44,7 +47,8 @@ module.exports = {
       phone_number: '480-962-6262',
       department_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Temple',
       last_name: 'Burburough',
@@ -54,7 +58,8 @@ module.exports = {
       phone_number: '318-121-5560',
       department_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Willy',
@@ -65,7 +70,8 @@ module.exports = {
       phone_number: '139-210-8136',
       department_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Shaina',
@@ -76,7 +82,8 @@ module.exports = {
       phone_number: '789-971-2936',
       department_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Fredrick',
       last_name: 'Orchart',
@@ -86,7 +93,8 @@ module.exports = {
       phone_number: '524-852-1164',
       department_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Jamie',
@@ -97,7 +105,8 @@ module.exports = {
       phone_number: '852-882-0375',
       department_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Ingra',
@@ -108,7 +117,8 @@ module.exports = {
       phone_number: '414-216-8608',
       department_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Kit',
       last_name: 'Decort',
@@ -118,7 +128,8 @@ module.exports = {
       phone_number: '588-786-6577',
       department_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Hagen',
@@ -129,7 +140,8 @@ module.exports = {
       phone_number: '919-401-7135',
       department_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Marylinda',
@@ -140,7 +152,8 @@ module.exports = {
       phone_number: '366-309-0086',
       department_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Averill',
@@ -151,7 +164,8 @@ module.exports = {
       phone_number: '588-786-6557',
       department_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Denni',
@@ -162,7 +176,8 @@ module.exports = {
       phone_number: '342-955-9649',
       department_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Zelig',
@@ -173,7 +188,8 @@ module.exports = {
       phone_number: '325-623-4766',
       department_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Bobbe',
       last_name: 'Shillabeer',
@@ -183,7 +199,8 @@ module.exports = {
       phone_number: '880-983-9359',
       department_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Niall',
@@ -194,7 +211,8 @@ module.exports = {
       phone_number: '718-773-7651',
       department_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Hewe',
@@ -205,7 +223,8 @@ module.exports = {
       phone_number: '320-238-0738',
       department_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Sarene',
       last_name: 'Flello',
@@ -215,7 +234,8 @@ module.exports = {
       phone_number: '917-645-9874',
       department_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Farrah',
@@ -226,7 +246,8 @@ module.exports = {
       phone_number: '904-836-7782',
       department_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Brewster',
@@ -237,7 +258,8 @@ module.exports = {
       phone_number: '364-647-8457',
       department_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Ralina',
       last_name: 'Trunchion',
@@ -247,7 +269,8 @@ module.exports = {
       phone_number: '569-694-5160',
       department_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Frederick',
@@ -258,7 +281,8 @@ module.exports = {
       phone_number: '447-700-0543',
       department_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Kinna',
@@ -269,7 +293,8 @@ module.exports = {
       phone_number: '497-804-6599',
       department_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Cinnamon',
       last_name: 'MacLaverty',
@@ -279,7 +304,8 @@ module.exports = {
       phone_number: '323-150-2051',
       department_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Rhea',
@@ -290,7 +316,8 @@ module.exports = {
       phone_number: '270-849-0025',
       department_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }
     ]);
   },

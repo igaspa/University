@@ -12,7 +12,8 @@ module.exports = {
       phone_number: '916-336-1238',
       major_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }, {
       first_name: 'Agatha',
       last_name: 'Renney',
@@ -22,7 +23,8 @@ module.exports = {
       phone_number: '701-864-6710',
       major_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Bendick',
@@ -33,7 +35,8 @@ module.exports = {
       phone_number: '863-596-0798',
       major_id: 3,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Frederique',
@@ -44,7 +47,8 @@ module.exports = {
       phone_number: '501-828-2525',
       major_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Braden',
@@ -55,7 +59,8 @@ module.exports = {
       phone_number: '399-581-8470',
       major_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Gracie',
@@ -66,7 +71,8 @@ module.exports = {
       phone_number: '381-673-6270',
       major_id: 1,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Benedetto',
@@ -77,7 +83,8 @@ module.exports = {
       phone_number: '628-414-7323',
       major_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Hanson',
@@ -88,7 +95,8 @@ module.exports = {
       phone_number: '439-660-5934',
       major_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Samson',
@@ -99,7 +107,8 @@ module.exports = {
       phone_number: '309-120-1043',
       major_id: 2,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Jorge',
@@ -110,7 +119,8 @@ module.exports = {
       phone_number: '683-312-7539',
       major_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Wallache',
@@ -121,7 +131,8 @@ module.exports = {
       phone_number: '309-120-1045',
       major_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Christoforo',
@@ -132,7 +143,8 @@ module.exports = {
       phone_number: '712-962-7017',
       major_id: 4,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Fredericka',
@@ -143,7 +155,8 @@ module.exports = {
       phone_number: '802-314-3150',
       major_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Ignaz',
@@ -154,7 +167,8 @@ module.exports = {
       phone_number: '326-640-2533',
       major_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Hilly',
@@ -165,7 +179,8 @@ module.exports = {
       phone_number: '333-764-4577',
       major_id: 5,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Jacklyn',
@@ -176,7 +191,8 @@ module.exports = {
       phone_number: '152-700-9951',
       major_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Jacklyn',
@@ -187,7 +203,8 @@ module.exports = {
       phone_number: '152-700-9951',
       major_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Norry',
@@ -198,7 +215,8 @@ module.exports = {
       phone_number: '818-434-0589',
       major_id: 6,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Cherye',
@@ -209,7 +227,8 @@ module.exports = {
       phone_number: '184-877-8013',
       major_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Irwinn',
@@ -220,7 +239,8 @@ module.exports = {
       phone_number: '182-661-6675',
       major_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Janot',
@@ -231,7 +251,8 @@ module.exports = {
       phone_number: '215-953-0672',
       major_id: 7,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Kass',
@@ -242,7 +263,8 @@ module.exports = {
       phone_number: '952-435-5830',
       major_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Shena',
@@ -253,7 +275,8 @@ module.exports = {
       phone_number: '209-340-3623',
       major_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Minda',
@@ -264,7 +287,8 @@ module.exports = {
       phone_number: '309-693-6090',
       major_id: 8,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Veronike',
@@ -275,7 +299,8 @@ module.exports = {
       phone_number: '711-485-3446',
       major_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Roxie',
@@ -286,7 +311,8 @@ module.exports = {
       phone_number: '943-961-5800',
       major_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Hillery',
@@ -297,7 +323,8 @@ module.exports = {
       phone_number: '647-606-7200',
       major_id: 9,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Codie',
@@ -308,7 +335,8 @@ module.exports = {
       phone_number: '713-716-1864',
       major_id: 10,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Gasper',
@@ -319,7 +347,8 @@ module.exports = {
       phone_number: '770-797-3473',
       major_id: 10,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Athena',
@@ -330,7 +359,8 @@ module.exports = {
       phone_number: '349-948-6767',
       major_id: 10,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Katrinka',
@@ -341,7 +371,8 @@ module.exports = {
       phone_number: '576-869-6380',
       major_id: 11,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Freeman',
@@ -352,7 +383,8 @@ module.exports = {
       phone_number: '779-724-3909',
       major_id: 11,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     },
     {
       first_name: 'Anastassia',
@@ -363,7 +395,8 @@ module.exports = {
       phone_number: '449-232-1310',
       major_id: 11,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      deleted: false
     }
     ]);
   },
