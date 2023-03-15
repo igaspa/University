@@ -1,21 +1,18 @@
+/* eslint-disable max-len */
 const express = require('express');
 const router = express.Router();
-const { course } = require('../database/models');
-const { generalControllers } = require('../controllers/general.controller');
-
+const { getAllExams, getExam, createExam, updateExam, deleteExam } = require('../controllers/exam');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
-const { validateCourse, validateId } = require('../middleware/validationHandler');
-
-const courseController = generalControllers(course);
+const { validateExam, validateId } = require('../middleware/validationHandler');
 
 router.get('/',
-/* #swagger.tags = ["Course"]
+/* #swagger.tags = ["Exam"]
 #swagger.responses[200] = {
-  "description": "Get list of courses",
+  "description": "Get list of exams",
    "content": {
     "application/json": {
       "schema": {
-        $ref: '#/components/schemas/courseList'
+        $ref: '#/components/schemas/examList'
         }
     }
   }
@@ -26,15 +23,15 @@ router.get('/',
         "message": "Item not found"
       }
     }
-*/ callbackErrorHandler(courseController.getAll));
+*/ callbackErrorHandler(getAllExams));
 router.get('/:id',
-/* #swagger.tags = ["Course"]
+/* #swagger.tags = ["Exam"]
 #swagger.responses[200] = {
-"description": "Get course details",
+"description": "Get exam details",
   "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/courseDetails'
+            $ref: '#/components/schemas/examDetails'
             }
         }
     }
@@ -45,16 +42,16 @@ router.get('/:id',
         "message": "Item not found"
       }
 }
-*/ validateId, callbackErrorHandler(courseController.getOne));
+*/ validateId, callbackErrorHandler(getExam));
 router.post('/',
-/* #swagger.tags = ["Course"]
-#swagger.parameters["course_body"] = {
+/* #swagger.tags = ["Exam"]
+#swagger.parameters["exam_body"] = {
        "in": "body",
-       "description": "Course body example",
+       "description": "Exam body example",
        "schema":{
            "name": "Mathematics",
-           "credit_hours" : "2",
-           "major_id": "1"
+           "date" : "2023-03-15",
+           "course_id": "1"
        }
    }
 #swagger.requestBody={
@@ -62,7 +59,7 @@ router.post('/',
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/courseBody'
+           $ref: '#/components/schemas/examBody'
            }
          }
        }
@@ -74,16 +71,16 @@ router.post('/',
     "message": "name is required"
   }
 }
-*/validateCourse, callbackErrorHandler(courseController.createItem));
+*/ validateExam, callbackErrorHandler(createExam));
 router.put('/:id',
-/* #swagger.tags = ['Course']
-#swagger.parameters["course_body"] = {
+/* #swagger.tags = ['Exam']
+#swagger.parameters["exam_body"] = {
        "in": "body",
-       "description": "Course body example",
-       "schema":{
+       "description": "Exam body example",
+        "schema":{
            "name": "Mathematics",
-           "credit_hours":"2",
-           "major_id": "1"
+           "date" : "2023-03-15",
+           "course_id": "1"
        }
    }
 #swagger.requestBody={
@@ -91,18 +88,18 @@ router.put('/:id',
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/courseBody'
+           $ref: '#/components/schemas/examBody'
            }
          }
        }
      }
    }
       #swagger.responses[200] = {
-        "description": 'Course updated successfully',
+        "description": 'Exam updated successfully',
        "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/courseDetails'
+            $ref: '#/components/schemas/examDetails'
           }
         }
       }}
@@ -118,11 +115,11 @@ router.put('/:id',
           "message": "Item not found"
         }
       }
-    */ validateId, validateCourse, callbackErrorHandler(courseController.updateItem));
+    */ validateId, validateExam, callbackErrorHandler(updateExam));
 router.delete('/:id',
-/* #swagger.tags = ["Course"]
+/* #swagger.tags = ["Exam"]
 #swagger.responses[204] = {
-  "description": "Course deleted successfully",
+  "description": "Exam deleted successfully",
 }
 #swagger.responses[404] = {
   "description": "Invalid request sent",
@@ -132,6 +129,6 @@ router.delete('/:id',
     }
   ]
 }
-*/ validateId, callbackErrorHandler(courseController.deleteItem));
+*/ validateId, callbackErrorHandler(deleteExam));
 
 module.exports = router;

@@ -1,12 +1,8 @@
 const express = require('express');
-const { generalControllers } = require('../controllers/general.controller');
-const { getAllLecturers, getLecturer, deleteLecturer } = require('../controllers/lecturers.controller');
+const { getAllLecturers, getLecturer, deleteLecturer, createLecturer } = require('../controllers/lecturers');
 const router = express.Router();
-const { lecturer } = require('../database/models');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateLecturer, validateCompositeId } = require('../middleware/validationHandler');
-
-const lecturerController = generalControllers(lecturer);
 
 router.get('/',
 /* #swagger.tags = ["Lecturer"]
@@ -87,7 +83,7 @@ router.post('/',
     ]
   }
 }
-*/ validateLecturer, callbackErrorHandler(lecturerController.createItem));
+*/ validateLecturer, callbackErrorHandler(createLecturer));
 router.delete('/:firstId/:secondId',
 /* #swagger.tags = ["Lecturer"]
 #swagger.responses[204] = {

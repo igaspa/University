@@ -1,21 +1,17 @@
-const { getAllMajors, getMajor } = require('../controllers/major.controller.js');
 const express = require('express');
 const router = express.Router();
-const { generalControllers } = require('../controllers/general.controller');
-
-const { major } = require('../database/models');
+const { getAllCourses, getCourse, createCourse, updateCourse, deleteCourse } = require('../controllers/course');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
-const { validateId, validateMajor } = require('../middleware/validationHandler.js');
+const { validateCourse, validateId } = require('../middleware/validationHandler');
 
-const majorController = generalControllers(major);
-
-router.get('/', /* #swagger.tags = ["Major"]
+router.get('/',
+/* #swagger.tags = ["Course"]
 #swagger.responses[200] = {
-  "description": "Get list of majors",
+  "description": "Get list of courses",
    "content": {
     "application/json": {
       "schema": {
-        $ref: '#/components/schemas/majorList'
+        $ref: '#/components/schemas/courseList'
         }
     }
   }
@@ -26,14 +22,15 @@ router.get('/', /* #swagger.tags = ["Major"]
         "message": "Item not found"
       }
     }
-*/ callbackErrorHandler(getAllMajors));
-router.get('/:id', /* #swagger.tags = ["Major"]
+*/ callbackErrorHandler(getAllCourses));
+router.get('/:id',
+/* #swagger.tags = ["Course"]
 #swagger.responses[200] = {
-"description": "Get major details",
+"description": "Get course details",
   "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/majorDetails'
+            $ref: '#/components/schemas/courseDetails'
             }
         }
     }
@@ -44,13 +41,16 @@ router.get('/:id', /* #swagger.tags = ["Major"]
         "message": "Item not found"
       }
 }
-*/ validateId, callbackErrorHandler(getMajor));
-router.post('/', /* #swagger.tags = ["Major"]
-#swagger.parameters["major_body"] = {
+*/ validateId, callbackErrorHandler(getCourse));
+router.post('/',
+/* #swagger.tags = ["Course"]
+#swagger.parameters["course_body"] = {
        "in": "body",
-       "description": "Major body example",
+       "description": "Course body example",
        "schema":{
            "name": "Mathematics",
+           "credit_hours" : "2",
+           "major_id": "1"
        }
    }
 #swagger.requestBody={
@@ -58,7 +58,7 @@ router.post('/', /* #swagger.tags = ["Major"]
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/majorBody'
+           $ref: '#/components/schemas/courseBody'
            }
          }
        }
@@ -70,14 +70,16 @@ router.post('/', /* #swagger.tags = ["Major"]
     "message": "name is required"
   }
 }
-*/ validateMajor, callbackErrorHandler(majorController.createItem));
-router.put('/:id', validateId, validateMajor, callbackErrorHandler(majorController.updateItem)
-/* #swagger.tags = ['Major']
-#swagger.parameters["major_body"] = {
+*/validateCourse, callbackErrorHandler(createCourse));
+router.put('/:id',
+/* #swagger.tags = ['Course']
+#swagger.parameters["course_body"] = {
        "in": "body",
-       "description": "Major body example",
+       "description": "Course body example",
        "schema":{
            "name": "Mathematics",
+           "credit_hours":"2",
+           "major_id": "1"
        }
    }
 #swagger.requestBody={
@@ -85,18 +87,18 @@ router.put('/:id', validateId, validateMajor, callbackErrorHandler(majorControll
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/majorBody'
+           $ref: '#/components/schemas/courseBody'
            }
          }
        }
      }
    }
       #swagger.responses[200] = {
-        "description": 'Major updated successfully',
+        "description": 'Course updated successfully',
        "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/majorDetails'
+            $ref: '#/components/schemas/courseDetails'
           }
         }
       }}
@@ -112,20 +114,20 @@ router.put('/:id', validateId, validateMajor, callbackErrorHandler(majorControll
           "message": "Item not found"
         }
       }
-    */);
-router.delete('/:id', validateId, callbackErrorHandler(majorController.deleteItem)
-/* #swagger.tags = ["Major"]
-    #swagger.responses[204] = {
-      "description": "Major deleted successfully",
+    */ validateId, validateCourse, callbackErrorHandler(updateCourse));
+router.delete('/:id',
+/* #swagger.tags = ["Course"]
+#swagger.responses[204] = {
+  "description": "Course deleted successfully",
+}
+#swagger.responses[404] = {
+  "description": "Invalid request sent",
+ "schema": [
+    {
+      "message": "Item not found!"
     }
-    #swagger.responses[404] = {
-      "description": "Invalid request sent",
-     "schema": [
-        {
-          "message": "Item not found!"
-        }
-      ]
-    }
-*/);
+  ]
+}
+*/ validateId, callbackErrorHandler(deleteCourse));
 
 module.exports = router;
