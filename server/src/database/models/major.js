@@ -13,21 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       major.hasMany(models.student, {
         foreignKey: {
           name: 'majorId',
-          field: 'majorId'
+          field: 'major_id'
         },
         onDelete: 'cascade'
       });
       major.hasMany(models.department, {
         foreignKey: {
           name: 'majorId',
-          field: 'majorId'
+          field: 'major_id'
         },
         onDelete: 'cascade'
       });
       major.hasMany(models.course, {
         foreignKey: {
           name: 'majorId',
-          field: 'majorId'
+          field: 'major_id'
         },
         onDelete: 'cascade'
       });

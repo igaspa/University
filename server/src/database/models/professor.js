@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       professor.belongsTo(models.department, {
         foreignKey: {
           name: 'departmentId',
-          field: 'departmentId'
+          field: 'department_id'
         },
         onDelete: 'cascade'
       });
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.lecturer,
         foreignKey: {
           name: 'professorId',
-          field: 'professorId'
+          field: 'professor_id'
         },
         onDelete: 'cascade'
       });

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.result,
         foreignKey: {
           name: 'studentId',
-          field: 'studentId'
+          field: 'student_id'
         },
         onDelete: 'cascade'
       });
@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         through: models.enrollment,
         foreignKey: {
           name: 'studentId',
-          field: 'studentId'
+          field: 'student_id'
         },
         onDelete: 'cascade'
       });
       student.belongsTo(models.major, {
         foreignKey: {
           name: 'majorId',
-          field: 'majorId'
+          field: 'major_id'
         },
         onDelete: 'cascade'
       });

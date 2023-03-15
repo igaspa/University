@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       course.hasMany(models.exam, {
         foreignKey: {
           name: 'courseId',
-          field: 'courseId'
+          field: 'course_id'
         },
         onDelete: 'cascade'
       });
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.enrollment,
         foreignKey: {
           name: 'courseId',
-          field: 'courseId'
+          field: 'course_id'
         },
         onDelete: 'cascade'
       });
@@ -29,21 +29,21 @@ module.exports = (sequelize, DataTypes) => {
         through: models.lecturer,
         foreignKey: {
           name: 'courseId',
-          field: 'courseId'
+          field: 'course_id'
         },
         onDelete: 'cascade'
       });
       course.belongsTo(models.major, {
         foreignKey: {
           name: 'majorId',
-          field: 'majorId'
+          field: 'major_id'
         },
         onDelete: 'cascade'
       });
       course.hasMany(models.enrollment, {
         foreignKey: {
           name: 'courseId',
-          field: 'courseId'
+          field: 'course_id'
         },
         onDelete: 'cascade'
       });
