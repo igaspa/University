@@ -1,8 +1,14 @@
 const crudController = require('./crud');
 const { course } = require('../database/models');
+const { searchByName } = require('../services/searchService');
 
 exports.getAllCourses = async (req, res) => {
-  await crudController.getAll(course, null, req, res);
+  const searchedName = searchByName(req.query);
+
+  const query = {
+    where: searchedName
+  };
+  await crudController.getAll(course, query, req, res);
 };
 
 exports.getCourse = async (req, res) => {

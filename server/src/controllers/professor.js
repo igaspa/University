@@ -1,16 +1,18 @@
-
-const models = require('../database/models');
 const bcrypt = require('bcrypt');
 const { professor, department } = require('../database/models');
 const { INCLUDE_NAME } = require('../utils/helper');
 const crudController = require('./crud');
+const { searchByUserName } = require('../services/searchService');
 
 exports.getAllProfessors = async (req, res) => {
+  const searchedName = searchByUserName(req.query);
+
   const query = {
     include: {
       model: department,
       attributes: INCLUDE_NAME
-    }
+    },
+    where: searchedName
   };
   await crudController.getAll(professor, query, req, res);
 };
@@ -25,18 +27,8 @@ exports.getProfessor = async (req, res) => {
   await crudController.getOne(professor, query, req, res);
 };
 exports.createProfessor = async (req, res) => {
-  const { firstName, lastName, email, password, address, phoneNumber, departmentId } = req.body;
-  const encryptedPassword = await bcrypt.hash(password, 10);
-  const professor = await models.professor.create({
-    firstName,
-    lastName,
-    email,
-    password: encryptedPassword,
-    address,
-    phoneNumber,
-    departmentId
-  });
-  return res.status(201).json(professor);
+  req.body.password = await bcrypt.hash(req.body.password, 10);
+  await crudController.createItem(professor, req, res);
 };
 
 exports.updateProfessor = async (req, res) => {
