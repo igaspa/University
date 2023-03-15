@@ -1,98 +1,98 @@
 const professorTestData = [
   ['/professors/n', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 400, '"id" must be a number'],
   ['/professors/1', {
     first_nam: 'First',
-    last_name: 'Last',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
-  }, 400, '"first_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
+  }, 400, '"firstName" is required'],
   ['/professors/1', {
-    first_name: 'First',
+    firstName: 'First',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
-  }, 400, '"last_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
+  }, 400, '"lastName" is required'],
   ['/professors/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 400, '"email" is required'],
   ['/professors/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    phone_number: '122223345',
-    department_id: 1
-  }, 400, '"adress" is required'],
+    phoneNumber: '122223345',
+    departmentId: 1
+  }, 400, '"address" is required'],
   ['/professors/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    department_id: 1
-  }, 400, '"phone_number" is required'],
+    address: 'Solin',
+    departmentId: 1
+  }, 400, '"phoneNumber" is required'],
   ['/professors/2', {
-    first_name: 'First Updated',
-    last_name: 'Last',
+    firstName: 'First Updated',
+    lastName: 'Last',
     email: 'iga@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 200],
   ['/professors/2', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 400, '"password" is required'],
   ['/professors/2', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 400, '"email" is required'],
   ['/professors/100', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 404, 'Item does not exist'],
   ['/professors', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    department_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    departmentId: 1
   }, 404],
   ['/professors', {
-    first_name: 'First'
+    firstName: 'First'
   }, 404]];
 module.exports = professorTestData;

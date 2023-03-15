@@ -27,13 +27,12 @@ describe('Student route', () => {
           ),
           role: expect.any(String),
           id: expect.any(Number),
-          first_name: expect.any(String),
-          last_name: expect.any(String),
+          firstName: expect.any(String),
+          lastName: expect.any(String),
           email: expect.any(String),
-          password: expect.any(String),
-          adress: expect.any(String),
-          phone_number: expect.any(String),
-          major_id: expect.any(Number)
+          address: expect.any(String),
+          phoneNumber: expect.any(String),
+          majorId: expect.any(Number)
         }));
       expect(response.statusCode).toBe(200);
     });

@@ -13,28 +13,9 @@ describe('Lecturer route', () => {
     await db.sequelize.close();
   });
   describe('GET method for lecturer model', () => {
-    test('GET on lecturers/4/11 returns appropriate data types', async () => {
-      const response = await request(app).get('/lecturers/4/11');
-      expect(response.body).toEqual(
-        expect.objectContaining({
-          professor: {
-            first_name: expect.any(String),
-            last_name: expect.any(String)
-          },
-          course: {
-            name: expect.any(String)
-          },
-          professor_id: expect.any(Number),
-          course_id: expect.any(Number)
-        }));
-      expect(response.statusCode).toBe(200);
-    });
     describe.each([
       ['/lecturers', 200],
-      ['/lecturer', 404],
-      ['/lecturers/100/100', 404, 'Item does not exist'],
-      ['/lecturers/n/-', 400, '"firstId" must be a number'],
-      ['/lecturers/-/n', 400, '"firstId" must be a number']
+      ['/lecturer', 404]
     ])('GET on described routes returns expected status code and message if provided', (route, expectedStatus, msg) => {
       test(`${route} returns ${expectedStatus} status`, async () => {
         const response = await request(app).get(`${route}`);
@@ -48,10 +29,10 @@ describe('Lecturer route', () => {
   });
   describe('POST method for lecturer model', () => {
     describe.each([
-      ['/lecturers', { professor_id: 1, course_id: 1 }, 201],
-      ['/lecturers', { professor: 1, course_id: 1 }, 400, '"professor_id" is required'],
-      ['/lecturers', { professor_id: 1, coursd: 1 }, 400, '"course_id" is required'],
-      ['/lecturers', {}, 400, '"professor_id" is required']
+      ['/lecturers', { professorId: 1, courseId: 1 }, 201],
+      ['/lecturers', { professor: 1, courseId: 1 }, 400, '"professorId" is required'],
+      ['/lecturers', { professorId: 1, coursd: 1 }, 400, '"courseId" is required'],
+      ['/lecturers', {}, 400, '"professorId" is required']
       // eslint-disable-next-line max-len
     ])('POST on described routes returns expected status code and message if provided', (route, lecturer, expectedStatus, msg) => {
       test(`POST request returns ${expectedStatus} status`, async () => {

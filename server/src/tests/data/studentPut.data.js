@@ -1,99 +1,99 @@
 const studentTestPutData = [
   ['/students/n', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, '"id" must be a number'],
   ['/students/1', {
     first_nam: 'First',
-    last_name: 'Last',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"first_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"firstName" is required'],
   ['/students/1', {
-    first_name: 'First',
+    firstName: 'First',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"last_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"lastName" is required'],
   ['/students/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, '"email" is required'],
   ['/students/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"adress" is required'],
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"address" is required'],
   ['/students/1', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    major_id: 1
-  }, 400, '"phone_number" is required'],
+    address: 'Solin',
+    majorId: 1
+  }, 400, '"phoneNumber" is required'],
   ['/students/2', {
-    first_name: 'First Updated',
-    last_name: 'Last',
+    firstName: 'First Updated',
+    lastName: 'Last',
     email: 'iga@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 200],
   ['/students/2', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, '"password" is required'],
   ['/students/2', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, '"email" is required'],
   ['/students/100', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 404, 'Item does not exist'],
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 404],
   ['/students', {
-    first_name: 'First'
+    firstName: 'First'
   }, 404]
   // eslint-disable-next-line max-len
 ];
