@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const { professor, department } = require('../database/models');
 const { INCLUDE_NAME } = require('../utils/helper');
 const crudController = require('./crud');
-const { searchByUserName } = require('../services/searchService');
+const { searchByUserName } = require('../services/filter');
 
 exports.getAllProfessors = async (req, res) => {
   const searchedName = searchByUserName(req.query);

@@ -2,11 +2,10 @@ const { student, major } = require('../database/models');
 const bcrypt = require('bcrypt');
 const { INCLUDE_NAME } = require('../utils/helper');
 const crudController = require('./crud');
-const { searchByUserName } = require('../services/searchService');
+const { searchByUserName } = require('../services/filter');
 
 exports.getAllStudents = async (req, res) => {
   const searchedName = searchByUserName(req.query);
-
   const query = {
     include: {
       model: major,
