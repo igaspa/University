@@ -26,7 +26,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    cd server
    ```
-3. Run the docker-compose.yaml to start progres instance 
+3. Run the docker-compose.yaml to start postgres instance 
    ```sh
    docker compose up
    ```
