@@ -1,13 +1,10 @@
 
-const { getAllStudents, getStudent, createStudent } = require('../controllers/student.controller');
+// eslint-disable-next-line max-len
+const { getAllStudents, getStudent, createStudent, updateStudent, deleteStudent } = require('../controllers/student');
 const express = require('express');
-const { generalControllers } = require('../controllers/general.controller');
-const { student } = require('../database/models');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateId, validateStudent } = require('../middleware/validationHandler');
 const router = express.Router();
-
-const studentController = generalControllers(student);
 
 router.get('/', /* #swagger.tags = ["Student"]
 #swagger.responses[200] = {
@@ -150,7 +147,7 @@ router.put('/:id',
           "message": "Item does not exist"
         }
     }
-    */ validateId, validateStudent, callbackErrorHandler(studentController.updateItem));
+    */ validateId, validateStudent, callbackErrorHandler(updateStudent));
 router.delete('/:id',
 /* #swagger.tags = ["Student"]
     #swagger.responses[204] = {
@@ -170,6 +167,6 @@ router.delete('/:id',
             }
         ]
     }
-*/ validateId, callbackErrorHandler(studentController.deleteItem));
+*/ validateId, callbackErrorHandler(deleteStudent));
 
 module.exports = router;

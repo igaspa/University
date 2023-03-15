@@ -1,12 +1,9 @@
-const { getAllProfessors, getProfessor, createProfessor } = require('../controllers/professor.controller.js');
 const express = require('express');
 const router = express.Router();
-const { professor } = require('../database/models');
-const { generalControllers } = require('../controllers/general.controller');
+// eslint-disable-next-line max-len
+const { getAllProfessors, getProfessor, createProfessor, updateProfessor, deleteProfessor } = require('../controllers/professor');
 const { callbackErrorHandler } = require('../middleware/errorHandler.js');
 const { validateId, validateProfessor } = require('../middleware/validationHandler.js');
-
-const professorController = generalControllers(professor);
 
 router.get('/'
 /* #swagger.tags = ["Professor"]
@@ -157,7 +154,7 @@ router.put('/:id', /* #swagger.tags = ["Professor"]
          "message": "Item does not exist"
        }
    }
-   */ validateId, validateProfessor, callbackErrorHandler(professorController.updateItem));
+   */ validateId, validateProfessor, callbackErrorHandler(updateProfessor));
 router.delete('/:id',
 /* #swagger.tags = ["Professor"]
     #swagger.responses[204] = {
@@ -177,6 +174,6 @@ router.delete('/:id',
             }
         ]
     }
-*/ validateId, callbackErrorHandler(professorController.deleteItem));
+*/ validateId, callbackErrorHandler(deleteProfessor));
 
 module.exports = router;

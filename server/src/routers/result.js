@@ -1,15 +1,10 @@
 /* eslint-disable max-len */
 const express = require('express');
 const router = express.Router();
-const { result } = require('../database/models');
-const { generalControllers } = require('../controllers/general.controller');
-
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateCompositeId, validateResult } = require('../middleware/validationHandler');
-const { getAllResults, getResult, deleteResult, updateResult } = require('../controllers/result.controller');
+const { getAllResults, getResult, deleteResult, updateResult, createResult } = require('../controllers/result');
 const { validateToken, verifyRoles } = require('../middleware/authentication');
-
-const resultController = generalControllers(result);
 
 router.get('/',
 /* #swagger.tags = ["Result"]
@@ -79,7 +74,7 @@ router.post('/', /* #swagger.tags = ["Result"]
     ]
   }
 }
-*/ validateResult, validateToken, verifyRoles('professor'), callbackErrorHandler(resultController.createItem));
+*/ validateResult, validateToken, verifyRoles('professor'), callbackErrorHandler(createResult));
 router.put('/:firstId/:secondId',
 /* #swagger.tags = ["Result"]
  #swagger.parameters["result_body"] = {

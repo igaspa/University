@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
         through: models.result,
         foreignKey: {
           name: 'examId',
-          field: 'examId'
+          field: 'exam_id'
         }
       });
       exam.belongsTo(models.course, {
         foreignKey: {
           name: 'courseId',
-          field: 'courseId'
+          field: 'course_id'
         }
       });
       exam.hasMany(models.result,

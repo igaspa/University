@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       result.belongsTo(models.exam, {
         foreignKey: {
           name: 'examId',
-          field: 'examId'
+          field: 'exam_id'
         },
         onDelete: 'cascade'
       });
       result.belongsTo(models.student, {
         foreignKey: {
           name: 'studentId',
-          field: 'studentId'
+          field: 'student_id'
         },
         onDelete: 'cascade'
       });

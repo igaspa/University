@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { department } = require('../database/models');
-const { generalControllers } = require('../controllers/general.controller');
-
+// eslint-disable-next-line max-len
+const { getAllDepartments, getDepartment, createDepartment, updateDepartment, deleteDepartment } = require('../controllers/department');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateId, validateDepartment } = require('../middleware/validationHandler');
-
-const departmentController = generalControllers(department);
 
 router.get('/', /* #swagger.tags = ["Department"]
 #swagger.responses[200] = {
@@ -25,7 +22,7 @@ router.get('/', /* #swagger.tags = ["Department"]
         "message": "Item not found"
       }
     }
-*/ callbackErrorHandler(departmentController.getAll));
+*/ callbackErrorHandler(getAllDepartments));
 router.get('/:id', /* #swagger.tags = ["Department"]
 #swagger.responses[200] = {
 "description": "Get department details",
@@ -43,7 +40,7 @@ router.get('/:id', /* #swagger.tags = ["Department"]
         "message": "Item not found"
       }
 }
-*/ validateId, callbackErrorHandler(departmentController.getOne));
+*/ validateId, callbackErrorHandler(getDepartment));
 router.post('/', /* #swagger.tags = ["Department"]
 #swagger.parameters["department_body"] = {
        "in": "body",
@@ -70,7 +67,7 @@ router.post('/', /* #swagger.tags = ["Department"]
     "message": "name is required"
   }
 }
-*/validateDepartment, callbackErrorHandler(departmentController.createItem));
+*/validateDepartment, callbackErrorHandler(createDepartment));
 router.put('/:id', /* #swagger.tags = ['Department']
 #swagger.parameters["department_body"] = {
        "in": "body",
@@ -112,7 +109,7 @@ router.put('/:id', /* #swagger.tags = ['Department']
           "message": "Item not found"
         }
       }
-    */ validateId, validateDepartment, callbackErrorHandler(departmentController.updateItem));
+    */ validateId, validateDepartment, callbackErrorHandler(updateDepartment));
 router.delete('/:id', /* #swagger.tags = ["Department"]
 #swagger.responses[204] = {
   "description": "Department deleted successfully",
@@ -125,6 +122,6 @@ router.delete('/:id', /* #swagger.tags = ["Department"]
     }
   ]
 }
-*/ validateId, callbackErrorHandler(departmentController.deleteItem));
+*/ validateId, callbackErrorHandler(deleteDepartment));
 
 module.exports = router;

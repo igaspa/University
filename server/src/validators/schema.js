@@ -12,8 +12,8 @@ module.exports.compositeIdSchema = Joi.object({
 
 module.exports.courseSchema = Joi.object({
   name: Joi.string().required(),
-  credit_hours: Joi.number().min(0).max(5).required(),
-  major_id: Joi.number().min(1).required()
+  creditHours: Joi.number().min(0).max(5).required(),
+  majorId: Joi.number().min(1).required()
 });
 
 module.exports.majorSchema = Joi.object({
@@ -22,49 +22,49 @@ module.exports.majorSchema = Joi.object({
 
 module.exports.departmentSchema = Joi.object({
   name: Joi.string().required(),
-  major_id: Joi.number().min(1).required()
+  majorId: Joi.number().min(1).required()
 });
 
 module.exports.examSchema = Joi.object({
   name: Joi.string().required(),
   date: Joi.date().greater(Date.now() + 48 * 60 * 60 * 1000),
-  course_id: Joi.number().min(1).required()
+  courseId: Joi.number().min(1).required()
 });
 
 module.exports.enrollmentSchema = Joi.object({
-  student_id: Joi.number().required().min(1),
-  course_id: Joi.number().required().min(1)
+  studentId: Joi.number().required().min(1),
+  courseId: Joi.number().required().min(1)
 });
 
 module.exports.lecturerSchema = Joi.object({
-  professor_id: Joi.number().min(1).required(),
-  course_id: Joi.number().min(1).required()
+  professorId: Joi.number().min(1).required(),
+  courseId: Joi.number().min(1).required()
 });
 
 module.exports.resultSchema = Joi.object({
   grade: Joi.number().min(1).max(5).required(),
-  student_id: Joi.number().min(1).required(),
-  exam_id: Joi.number().min(1).required()
+  studentId: Joi.number().min(1).required(),
+  examId: Joi.number().min(1).required()
 });
 
 module.exports.studentSchema = Joi.object({
-  first_name: Joi.string().required(),
-  last_name: Joi.string().required(),
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
   email: Joi.string().min(3).max(50).required(),
   password: Joi.string().min(3).max(50).required(),
-  adress: Joi.string().min(3).max(50).required(),
-  phone_number: Joi.string().max(15).required(),
-  major_id: Joi.number().min(1).required()
+  address: Joi.string().min(3).max(50).required(),
+  phoneNumber: Joi.string().max(15).required(),
+  majorId: Joi.number().min(1).required()
 });
 
 module.exports.professorSchema = Joi.object({
-  first_name: Joi.string().required(),
-  last_name: Joi.string().required(),
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
   email: Joi.string().min(3).max(50).required(),
   password: Joi.string().min(3).max(50).required(),
-  adress: Joi.string().min(3).max(50).required(),
-  phone_number: Joi.string().min(9).max(15).required(),
-  department_id: Joi.number().min(1).required()
+  address: Joi.string().min(3).max(50).required(),
+  phoneNumber: Joi.string().min(9).max(15).required(),
+  departmentId: Joi.number().min(1).required()
 });
 
 module.exports.authenticationSchema = Joi.object({

@@ -1,22 +1,16 @@
-/* eslint-disable max-len */
 const express = require('express');
 const router = express.Router();
-const { exam } = require('../database/models');
-const { generalControllers } = require('../controllers/general.controller');
-
+const { getAllMajors, getMajor, createMajor, updateMajor, deleteMajor } = require('../controllers/major');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
-const { validateExam, validateId } = require('../middleware/validationHandler');
+const { validateId, validateMajor } = require('../middleware/validationHandler.js');
 
-const examController = generalControllers(exam);
-
-router.get('/',
-/* #swagger.tags = ["Exam"]
+router.get('/', /* #swagger.tags = ["Major"]
 #swagger.responses[200] = {
-  "description": "Get list of exams",
+  "description": "Get list of majors",
    "content": {
     "application/json": {
       "schema": {
-        $ref: '#/components/schemas/examList'
+        $ref: '#/components/schemas/majorList'
         }
     }
   }
@@ -27,15 +21,14 @@ router.get('/',
         "message": "Item not found"
       }
     }
-*/ callbackErrorHandler(examController.getAll));
-router.get('/:id',
-/* #swagger.tags = ["Exam"]
+*/ callbackErrorHandler(getAllMajors));
+router.get('/:id', /* #swagger.tags = ["Major"]
 #swagger.responses[200] = {
-"description": "Get exam details",
+"description": "Get major details",
   "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/examDetails'
+            $ref: '#/components/schemas/majorDetails'
             }
         }
     }
@@ -46,16 +39,13 @@ router.get('/:id',
         "message": "Item not found"
       }
 }
-*/ validateId, callbackErrorHandler(examController.getOne));
-router.post('/',
-/* #swagger.tags = ["Exam"]
-#swagger.parameters["exam_body"] = {
+*/ validateId, callbackErrorHandler(getMajor));
+router.post('/', /* #swagger.tags = ["Major"]
+#swagger.parameters["major_body"] = {
        "in": "body",
-       "description": "Exam body example",
+       "description": "Major body example",
        "schema":{
            "name": "Mathematics",
-           "date" : "2023-03-15",
-           "course_id": "1"
        }
    }
 #swagger.requestBody={
@@ -63,7 +53,7 @@ router.post('/',
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/examBody'
+           $ref: '#/components/schemas/majorBody'
            }
          }
        }
@@ -75,16 +65,14 @@ router.post('/',
     "message": "name is required"
   }
 }
-*/ validateExam, callbackErrorHandler(examController.createItem));
-router.put('/:id',
-/* #swagger.tags = ['Exam']
-#swagger.parameters["exam_body"] = {
+*/ validateMajor, callbackErrorHandler(createMajor));
+router.put('/:id', validateId, validateMajor, callbackErrorHandler(updateMajor)
+/* #swagger.tags = ['Major']
+#swagger.parameters["major_body"] = {
        "in": "body",
-       "description": "Exam body example",
-        "schema":{
+       "description": "Major body example",
+       "schema":{
            "name": "Mathematics",
-           "date" : "2023-03-15",
-           "course_id": "1"
        }
    }
 #swagger.requestBody={
@@ -92,18 +80,18 @@ router.put('/:id',
      "content": {
        "application/json": {
          "schema": {
-           $ref: '#/components/schemas/examBody'
+           $ref: '#/components/schemas/majorBody'
            }
          }
        }
      }
    }
       #swagger.responses[200] = {
-        "description": 'Exam updated successfully',
+        "description": 'Major updated successfully',
        "content": {
         "application/json": {
           "schema": {
-            $ref: '#/components/schemas/examDetails'
+            $ref: '#/components/schemas/majorDetails'
           }
         }
       }}
@@ -119,20 +107,20 @@ router.put('/:id',
           "message": "Item not found"
         }
       }
-    */ validateId, validateExam, callbackErrorHandler(examController.updateItem));
-router.delete('/:id',
-/* #swagger.tags = ["Exam"]
-#swagger.responses[204] = {
-  "description": "Exam deleted successfully",
-}
-#swagger.responses[404] = {
-  "description": "Invalid request sent",
- "schema": [
-    {
-      "message": "Item not found!"
+    */);
+router.delete('/:id', validateId, callbackErrorHandler(deleteMajor)
+/* #swagger.tags = ["Major"]
+    #swagger.responses[204] = {
+      "description": "Major deleted successfully",
     }
-  ]
-}
-*/ validateId, callbackErrorHandler(examController.deleteItem));
+    #swagger.responses[404] = {
+      "description": "Invalid request sent",
+     "schema": [
+        {
+          "message": "Item not found!"
+        }
+      ]
+    }
+*/);
 
 module.exports = router;
