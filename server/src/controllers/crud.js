@@ -26,6 +26,7 @@ exports.getAll = async (model, query, req, res) => {
   res.set('X-Total-Pages', pageCount);
 
   const allItems = await model.findAll(options);
+  if (!allItems) throw new NotFoundError('Resource does not exist');
   res.status(200).json(allItems);
 };
 
@@ -33,7 +34,7 @@ exports.getOne = async (model, query, req, res) => {
   const options = {
     attributes: { exclude: EXCLUDE_LIST },
     include: [],
-    where: [{ deleted: false }]
+    where: [{ id: req.params.id, deleted: false }]
   };
 
   if (query) {
@@ -43,12 +44,15 @@ exports.getOne = async (model, query, req, res) => {
   }
 
   const oneItem = await model.findOne(options);
+  if (!oneItem) throw new NotFoundError('Resource does not exist');
   res.status(200).json(oneItem);
 };
 
 exports.createItem = async (model, req, res) => {
   const itemData = req.body;
   const newItem = await model.create(itemData);
+  if (!newItem) throw new NotFoundError('Resource does not exist');
+
   res.status(201).json(newItem);
 };
 
