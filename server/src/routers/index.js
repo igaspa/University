@@ -8,9 +8,15 @@ const professorRoutes = require('./professor');
 const resultRoutes = require('./result');
 const studentRoutes = require('./student');
 const authRoutes = require('./authentication');
+const logger = require('../utils/logger').logger;
 
 const express = require('express');
 const router = express.Router();
+
+router.use((req, res, next) => {
+  logger.info(`Method: ${req.method}, Route: ${req.url}`);
+  next();
+});
 
 router.use('/lecturers', lecturerRoutes);
 router.use('/courses', courseRoutes);
