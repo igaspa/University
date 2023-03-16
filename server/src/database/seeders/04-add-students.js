@@ -54,7 +54,7 @@ module.exports = {
       first_name: 'Braden',
       last_name: 'Wenzel',
       email: 'bwenzel4@yandex.ru',
-      password: 'jW3yXu9Gne9tpeCUPGwG50Hx5K6MYT17afgqLHJXq',
+      password: '$2b$10$TJ1UOwsbeaW.jW3yXu9Gne9tpeCUPGwG50Hx5K6MYT17afgqLHJXq',
       address: '4th Floor',
       phone_number: '399-581-8470',
       major_id: 1,
