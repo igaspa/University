@@ -15,7 +15,7 @@ const errorMiddleware = async (err, req, res, next) => {
     res.status(400).json({ message: err.message });
   } else if (err.name === 'AuthorizationError') {
     logger.error({ message: err.message });
-    res.status(401).json({ message: err.message });
+    res.status(403).json({ message: err.message });
   } else if (err.name === 'SequelizeUniqueConstraintError') {
     logger.error({ message: 'Item has to be unique' });
     res.status(400).json({ message: 'Item has to be unique' });
