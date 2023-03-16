@@ -43,7 +43,7 @@ router.get('/:firstId/:secondId',
         "message": "Item not found"
       }
 }
-*/ validateCompositeId, authenticateToken, verifyRoles('student'), callbackErrorHandler(getResult));
+*/ validateCompositeId, callbackErrorHandler(authenticateToken), verifyRoles('student'), callbackErrorHandler(getResult));
 router.post('/', /* #swagger.tags = ["Result"]
 #swagger.parameters["result_body"] = {
        "in": "body",
@@ -122,7 +122,7 @@ router.put('/:firstId/:secondId',
           "message": "Item does not exist"
         }
     }
-    */ validateCompositeId, validateResult, authenticateToken, verifyRoles('professor'), callbackErrorHandler(updateResult));
+    */ validateCompositeId, validateResult, callbackErrorHandler(authenticateToken), verifyRoles('professor'), callbackErrorHandler(updateResult));
 router.delete('/:firstId/:secondId',
 /* #swagger.tags = ["Result"]
 #swagger.responses[204] = {
