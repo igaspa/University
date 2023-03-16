@@ -20,6 +20,7 @@ exports.getAllResults = async (req, res) => {
 };
 
 exports.getResult = async (req, res) => {
+  const { firstId, secondId } = req.params;
   const query = {
     include: [
       {
@@ -30,9 +31,14 @@ exports.getResult = async (req, res) => {
         model: exam,
         attributes: INCLUDE_NAME
       }
-    ]
+    ],
+    where: { studentId: firstId, examId: secondId },
+    attributes: { exclude: EXCLUDE_LIST }
   };
-  await crudController.getOne(result, query, req, res);
+
+  const oneItem = await result.findOne(query);
+  if (!oneItem) throw new NotFoundError('Resource does not exist');
+  res.status(200).json(oneItem);
 };
 
 module.exports.updateResult = async (req, res) => {

@@ -4,7 +4,7 @@ const router = express.Router();
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateCompositeId, validateResult } = require('../middleware/validationHandler');
 const { getAllResults, getResult, deleteResult, updateResult, createResult } = require('../controllers/result');
-const { validateToken, verifyRoles } = require('../middleware/authentication');
+const { authenticateToken, verifyRoles } = require('../middleware/authentication');
 
 router.get('/',
 /* #swagger.tags = ["Result"]
@@ -43,7 +43,7 @@ router.get('/:firstId/:secondId',
         "message": "Item not found"
       }
 }
-*/ validateCompositeId, callbackErrorHandler(getResult));
+*/ validateCompositeId, callbackErrorHandler(authenticateToken), verifyRoles('student'), callbackErrorHandler(getResult));
 router.post('/', /* #swagger.tags = ["Result"]
 #swagger.parameters["result_body"] = {
        "in": "body",
@@ -74,7 +74,7 @@ router.post('/', /* #swagger.tags = ["Result"]
     ]
   }
 }
-*/ validateResult, validateToken, verifyRoles('professor'), callbackErrorHandler(createResult));
+*/ validateResult, callbackErrorHandler(authenticateToken), verifyRoles('professor'), callbackErrorHandler(createResult));
 router.put('/:firstId/:secondId',
 /* #swagger.tags = ["Result"]
  #swagger.parameters["result_body"] = {
@@ -122,7 +122,7 @@ router.put('/:firstId/:secondId',
           "message": "Item does not exist"
         }
     }
-    */ validateCompositeId, validateResult, validateToken, verifyRoles('professor'), callbackErrorHandler(updateResult));
+    */ validateCompositeId, validateResult, callbackErrorHandler(authenticateToken), verifyRoles('professor'), callbackErrorHandler(updateResult));
 router.delete('/:firstId/:secondId',
 /* #swagger.tags = ["Result"]
 #swagger.responses[204] = {

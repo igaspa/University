@@ -6,7 +6,7 @@ module.exports = {
     return queryInterface.bulkInsert('professor', [{
       first_name: 'Nicolai',
       last_name: 'Mackney',
-      email: 'nmackney1c@oaic.gov.au',
+      email: 'professor@example.com',
       password: '$2b$10$TJ1UOwsbeaW.jW3yXu9Gne9tpeCUPGwG50Hx5K6MYT17afgqLHJXq',
       address: 'PO Box 46880',
       phone_number: '916-336-1467',

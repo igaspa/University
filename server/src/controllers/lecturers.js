@@ -18,6 +18,27 @@ exports.getAllLecturers = async (req, res) => {
   };
   await crudController.getAll(lecturer, query, req, res);
 };
+exports.getLecturer = async (req, res) => {
+  const { firstId, secondId } = req.params;
+  const query = {
+    include: [
+      {
+        model: professor,
+        attributes: INCLUDE_USER_LIST
+      },
+      {
+        model: course,
+        attributes: INCLUDE_NAME
+      }
+    ],
+    where: { professorId: firstId, courseId: secondId },
+    attributes: { exclude: EXCLUDE_LIST }
+  };
+
+  const oneItem = await lecturer.findOne(query);
+  if (!oneItem) throw new NotFoundError('Resource does not exist');
+  res.status(200).json(oneItem);
+};
 
 exports.deleteLecturer = async (req, res) => {
   const { firstId, secondId } = req.params;

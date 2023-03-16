@@ -53,6 +53,34 @@ router.get('/:firstId/:secondId',
       }
     }
 */ validateCompositeId, callbackErrorHandler(getLecturer));
+router.get('/:firstId/:secondId',
+/* #swagger.tags = ["Lecturer"]
+#swagger.responses[200] = {
+"description": "Get lecturer details",
+  "content": {
+        "application/json": {
+          "schema": {
+            $ref: '#/components/schemas/lecturerDetails'
+            }
+        }
+    }
+}
+#swagger.responses[404] = {
+   "description": "Invalid request sent",
+      "schema": {
+        "message": "Item not found"
+      }
+}
+#swagger.responses[400] = {
+      "description": "Invalid request sent",
+      "schema": {
+        "message": [
+        "firstId must be a number",
+        "secondId must be a number"
+        ]
+      }
+    }
+*/ validateCompositeId, callbackErrorHandler(getLecturer));
 router.post('/',
 /* #swagger.tags = ["Lecturer"]
 #swagger.parameters["lecturer_body"] = {

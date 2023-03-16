@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllEnrollments, deleteEnrollment, createEnrollment } = require('../controllers/enrollment');
+const { getAllEnrollments, deleteEnrollment, createEnrollment, getEnrollment } = require('../controllers/enrollment');
 const { callbackErrorHandler } = require('../middleware/errorHandler');
 const { validateEnrollment, validateCompositeId } = require('../middleware/validationHandler');
 
@@ -23,6 +23,25 @@ router.get('/',
       }
     }
 */ callbackErrorHandler(getAllEnrollments));
+router.get('/:firstId/:secondId',
+/* #swagger.tags = ["Enrollment"]
+#swagger.responses[200] = {
+"description": "Get enrollment details",
+  "content": {
+        "application/json": {
+          "schema": {
+            $ref: '#/components/schemas/enrollmentDetails'
+            }
+        }
+    }
+}
+#swagger.responses[404] = {
+   "description": "Invalid request sent",
+      "schema": {
+        "message": "Item not found"
+      }
+}
+*/ validateCompositeId, callbackErrorHandler(getEnrollment));
 router.post('/',
 /* #swagger.tags = ["Enrollment"]
 #swagger.parameters["enrollment_body"] = {

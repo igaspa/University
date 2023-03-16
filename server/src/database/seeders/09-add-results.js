@@ -6,8 +6,8 @@ module.exports = {
     return queryInterface.bulkInsert('result', [
       {
         grade: 2,
-        student_id: 20,
-        exam_id: 7,
+        student_id: 5,
+        exam_id: 13,
         created_at: new Date(),
         updated_at: new Date(),
         deleted: false
