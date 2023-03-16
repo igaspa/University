@@ -41,7 +41,7 @@ exports.getResult = async (req, res) => {
   res.status(200).json(oneItem);
 };
 
-module.exports.updateResult = async (req, res) => {
+exports.updateResult = async (req, res) => {
   const { firstId, secondId } = req.params;
   const updatedResult = await result.update(req.body, {
     where: { studentId: firstId, examId: secondId },
@@ -52,7 +52,7 @@ module.exports.updateResult = async (req, res) => {
   return res.status(200).json(updatedResult);
 };
 
-module.exports.deleteResult = async (req, res) => {
+exports.deleteResult = async (req, res) => {
   const { firstId, secondId } = req.params;
   const deletedItem = await result.update({ deleted: true }, {
     where: { studentId: firstId, examId: secondId },

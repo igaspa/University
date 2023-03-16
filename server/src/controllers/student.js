@@ -16,7 +16,7 @@ exports.getAllStudents = async (req, res) => {
   await crudController.getAll(student, query, req, res);
 };
 
-module.exports.getStudent = async (req, res) => {
+exports.getStudent = async (req, res) => {
   const query = {
     include: {
       model: major,
@@ -26,7 +26,7 @@ module.exports.getStudent = async (req, res) => {
   await crudController.getOne(student, query, req, res);
 };
 
-module.exports.createStudent = async (req, res) => {
+exports.createStudent = async (req, res) => {
   req.body.password = await bcrypt.hash(req.body.password, 10);
   await crudController.createItem(student, req, res);
 };
