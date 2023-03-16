@@ -10,17 +10,14 @@
     "migrate:dev": "cd src/database && npx sequelize-cli db:migrate --env=development",
     "undo:migrate:dev": "cd src/database && npx sequelize-cli db:migrate:undo:all --env=development",
     "seed:dev": "cd src/database && npx sequelize-cli db:seed:all --env=development",
-
     "start:stage": "nodemon -r dotenv/config server dotenv_config_path=.env.stage",
     "migrate:stage": "cd src/database && npx sequelize-cli db:migrate --env=stage",
     "undo:migrate:stage": "cd src/database && npx sequelize-cli db:migrate:undo:all --env=stage",
     "seed:stage": "cd src/database && npx sequelize-cli db:seed:all --env=stage",
-
     "start:test": "nodemon -r dotenv/config server dotenv_config_path=.env.test",
     "migrate:test": "cd src/database && npx sequelize-cli db:migrate --env=test",
     "undo:migrate:test": "cd src/database && npx sequelize-cli db:migrate:undo:all --env=test",
     "seed::test": "cd src/database && npx sequelize-cli db:seed:all --env=test",
-    
     "test": "jest --runInBand",
     "generate-swagger": "node swagger.js"
   },
@@ -38,7 +35,9 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.28.0",
-    "swagger-ui-express": "^4.6.0"
+    "swagger-ui-express": "^4.6.0",
+    "winston": "^3.8.2",
+    "winston-mongodb": "^5.1.1"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
