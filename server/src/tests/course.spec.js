@@ -33,12 +33,12 @@ describe('Courses route', () => {
   });
   describe('POST method for course model', () => {
     describe.each([
-      ['/courses', { name: 'REAL course', credit_hours: 2, major_id: 1 }, 201],
-      ['/courses', { name: 'REAL course', credit_hours: 2, major_id: 1 }, 400, 'Item has to be unique'],
+      ['/courses', { name: 'REAL course', creditHours: 2, majorId: 1 }, 201],
+      ['/courses', { name: 'REAL course', creditHours: 2, majorId: 1 }, 400, 'Item has to be unique'],
       ['/courses', { nam: 'REAL MAJOR' }, 400, '"name" is required'],
       ['/courses', {}, 400, '"name" is required'],
-      ['/courses', { name: 'REAL course', credit_hours: 2 }, 400, '"major_id" is required'],
-      ['/courses', { name: 'REAL course', major_id: 2 }, 400, '"credit_hours" is required']
+      ['/courses', { name: 'REAL course', creditHours: 2 }, 400, '"majorId" is required'],
+      ['/courses', { name: 'REAL course', majorId: 2 }, 400, '"creditHours" is required']
       // eslint-disable-next-line max-len
     ])('POST on described routes returns expected status code and message if provided', (route, course, expectedStatus, msg) => {
       test(`POST request returns ${expectedStatus} status`, async () => {
@@ -52,13 +52,13 @@ describe('Courses route', () => {
   });
   describe('PUT method for course model', () => {
     describe.each([
-      ['/courses/n', { name: 'Major', credit_hours: 2, major_id: 5 }, 400, '"id" must be a number'],
-      ['/courses/1', { nam: 'REAL course', credit_hours: 2, major_id: 1 }, 400, '"name" is required'],
-      ['/courses/2', { name: 'Major', credit_hours: 2, major_id: 5 }, 200],
-      ['/courses/2', { name: 'Major', major_id: 5 }, 400, '"credit_hours" is required'],
-      ['/courses/2', { name: 'Major', credit_hours: 5 }, 400, '"major_id" is required'],
-      ['/courses/100', { name: 'Major', credit_hours: 2, major_id: 5 }, 404, 'Item does not exist'],
-      ['/courses', { name: 'Major', credit_hours: 2, major_id: 5 }, 404],
+      ['/courses/n', { name: 'Major', creditHours: 2, majorId: 5 }, 400, '"id" must be a number'],
+      ['/courses/1', { nam: 'REAL course', creditHours: 2, majorId: 1 }, 400, '"name" is required'],
+      ['/courses/2', { name: 'Major', creditHours: 2, majorId: 5 }, 200],
+      ['/courses/2', { name: 'Major', majorId: 5 }, 400, '"creditHours" is required'],
+      ['/courses/2', { name: 'Major', creditHours: 5 }, 400, '"majorId" is required'],
+      ['/courses/100', { name: 'Major', creditHours: 2, majorId: 5 }, 404, 'Item does not exist'],
+      ['/courses', { name: 'Major', creditHours: 2, majorId: 5 }, 404],
       ['/courses', { name: 'REAL course' }, 404]
       // eslint-disable-next-line max-len
     ])('PUT on described routes returns expected status code and message if provided', (route, course, expectedStatus, msg) => {

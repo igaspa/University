@@ -1,69 +1,69 @@
 const studentTestPostData = [
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 201],
   ['/students', {
-    first_name: 'Firste',
-    last_name: 'Laste',
+    firstName: 'Firste',
+    lastName: 'Laste',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, 'Item has to be unique'],
   ['/students', {
-    last_name: 'Last',
+    lastName: 'Last',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"first_name" is required'],
-  ['/students', {}, 400, '"first_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"firstName" is required'],
+  ['/students', {}, 400, '"firstName" is required'],
   ['/students', {
-    first_name: 'First',
+    firstName: 'First',
     email: 'ig@gmail.com',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"last_name" is required'],
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"lastName" is required'],
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     password: 'test',
-    adress: 'Solin',
-    phone_number: '122223345',
-    major_id: 1
+    address: 'Solin',
+    phoneNumber: '122223345',
+    majorId: 1
   }, 400, '"email" is required'],
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@med.com',
     password: 'test',
-    phone_number: '122223345',
-    major_id: 1
-  }, 400, '"adress" is required'],
+    phoneNumber: '122223345',
+    majorId: 1
+  }, 400, '"address" is required'],
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@med.com',
     password: 'test',
-    adress: 'Solin',
-    major_id: 1
-  }, 400, '"phone_number" is required'],
+    address: 'Solin',
+    majorId: 1
+  }, 400, '"phoneNumber" is required'],
   ['/students', {
-    first_name: 'First',
-    last_name: 'Last',
+    firstName: 'First',
+    lastName: 'Last',
     email: 'ig@med.com',
-    adress: 'Solin',
-    major_id: 1
+    address: 'Solin',
+    majorId: 1
   }, 400, '"password" is required']
 ];
 module.exports = studentTestPostData;

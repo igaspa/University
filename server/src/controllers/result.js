@@ -49,7 +49,7 @@ module.exports.updateResult = async (req, res) => {
 module.exports.deleteResult = async (req, res) => {
   const { firstId, secondId } = req.params;
   const deletedItem = await result.update({ deleted: true }, {
-    where: { professorId: firstId, courseId: secondId },
+    where: { studentId: firstId, examId: secondId },
     returning: true
   });
   if (!deletedItem[0]) { throw new NotFoundError(); }

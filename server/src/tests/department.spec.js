@@ -33,11 +33,11 @@ describe('Departments route', () => {
   });
   describe('POST method for department model', () => {
     describe.each([
-      ['/departments', { name: 'REAL department', major_id: 1 }, 201],
-      ['/departments', { name: 'REAL department', major_id: 1 }, 400, 'Item has to be unique'],
+      ['/departments', { name: 'REAL department', majorId: 1 }, 201],
+      ['/departments', { name: 'REAL department', majorId: 1 }, 400, 'Item has to be unique'],
       ['/departments', { nam: 'REAL MAJOR' }, 400, '"name" is required'],
       ['/departments', {}, 400, '"name" is required'],
-      ['/departments', { name: 'REAL department' }, 400, '"major_id" is required']
+      ['/departments', { name: 'REAL department' }, 400, '"majorId" is required']
       // eslint-disable-next-line max-len
     ])('POST on described routes returns expected status code and message if provided', (route, department, expectedStatus, msg) => {
       test(`POST request returns ${expectedStatus} status`, async () => {
@@ -51,11 +51,11 @@ describe('Departments route', () => {
   });
   describe('PUT method for department model', () => {
     describe.each([
-      ['/departments/n', { name: 'Major', major_id: 5 }, 400, '"id" must be a number'],
-      ['/departments/1', { nam: 'REAL department', major_id: 1 }, 400, '"name" is required'],
-      ['/departments/2', { name: 'Major', major_id: 5 }, 200],
-      ['/departments/100', { name: 'Major', major_id: 5 }, 404, 'Item does not exist'],
-      ['/departments', { name: 'Major', major_id: 5 }, 404],
+      ['/departments/n', { name: 'Major', majorId: 5 }, 400, '"id" must be a number'],
+      ['/departments/1', { nam: 'REAL department', majorId: 1 }, 400, '"name" is required'],
+      ['/departments/2', { name: 'Major', majorId: 5 }, 200],
+      ['/departments/100', { name: 'Major', majorId: 5 }, 404, 'Item does not exist'],
+      ['/departments', { name: 'Major', majorId: 5 }, 404],
       ['/departments', { name: 'Department' }, 404]
       // eslint-disable-next-line max-len
     ])('PUT on described routes returns expected status code and message if provided', (route, department, expectedStatus, msg) => {

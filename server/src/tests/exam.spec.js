@@ -33,10 +33,10 @@ describe('Exams route', () => {
   });
   describe('POST method for exam model', () => {
     describe.each([
-      ['/exams', { name: 'REAL exam', course_id: 1 }, 201],
+      ['/exams', { name: 'REAL exam', courseId: 1 }, 201],
       ['/exams', { nam: 'REAL MAJOR' }, 400, '"name" is required'],
       ['/exams', {}, 400, '"name" is required'],
-      ['/exams', { name: 'REAL exam', credit_hours: 2 }, 400, '"course_id" is required']
+      ['/exams', { name: 'REAL exam', credit_hours: 2 }, 400, '"courseId" is required']
       // eslint-disable-next-line max-len
     ])('POST on described routes returns expected status code and message if provided', (route, exam, expectedStatus, msg) => {
       test(`POST request returns ${expectedStatus} status`, async () => {
@@ -50,13 +50,13 @@ describe('Exams route', () => {
   });
   describe('PUT method for exam model', () => {
     describe.each([
-      ['/exams/n', { name: 'Major', date: 2, course_id: 5 }, 400, '"id" must be a number'],
-      ['/exams/1', { nam: 'REAL exam', date: 2, course_id: 1 }, 400, '"name" is required'],
-      ['/exams/2', { name: 'Major', date: '2023-02-14', course_id: 5 }, 200],
-      ['/exams/2', { name: 'Major', date: '2023-02-14' }, 400, '"course_id" is required'],
-      ['/exams/2', { date: '2023-02-14', course_id: 5 }, 400, '"name" is required'],
-      ['/exams/100', { name: 'Major', date: '2023-02-14', course_id: 5 }, 404, 'Item does not exist'],
-      ['/exams', { name: 'Major', date: '2003-02-14', course_id: 5 }, 404]
+      ['/exams/n', { name: 'Major', date: 2, courseId: 5 }, 400, '"id" must be a number'],
+      ['/exams/1', { nam: 'REAL exam', date: 2, courseId: 1 }, 400, '"name" is required'],
+      ['/exams/2', { name: 'Major', date: '2023-12-31', courseId: 5 }, 200],
+      ['/exams/2', { name: 'Major', date: '2023-12-31' }, 400, '"courseId" is required'],
+      ['/exams/2', { date: '2023-12-31', courseId: 5 }, 400, '"name" is required'],
+      ['/exams/100', { name: 'Major', date: '2023-12-31', courseId: 5 }, 404, 'Item does not exist'],
+      ['/exams', { name: 'Major', date: '2023-12-31', courseId: 5 }, 404]
       // eslint-disable-next-line max-len
     ])('PUT on described routes returns expected status code and message if provided', (route, exam, expectedStatus, msg) => {
       test(`PUT request returns ${expectedStatus} status`, async () => {

@@ -1,12 +1,12 @@
-const majorSeed = require('../../database/seeders/20230114193856-add-majors');
-const departmentSeed = require('../../database/seeders/20230114194426-add-departments');
-const courseSeed = require('../../database/seeders/20230114195146-add-courses');
-const studentSeed = require('../../database/seeders/20230114201419-add-students');
-const examSeed = require('../../database/seeders/20230114205737-add-exams');
-const professorSeed = require('../../database/seeders/20230114210255-add-professors');
-const enrollmentSeed = require('../../database/seeders/20230114214056-add-enrollments');
-const lecturerSeed = require('../../database/seeders/20230114215736-add-classes');
-const resultSeed = require('../../database/seeders/20230114221047-add-results');
+const majorSeed = require('../../database/seeders/01-add-majors');
+const departmentSeed = require('../../database/seeders/02-add-departments');
+const courseSeed = require('../../database/seeders/03-add-courses');
+const studentSeed = require('../../database/seeders/04-add-students');
+const examSeed = require('../../database/seeders/05-add-exams');
+const professorSeed = require('../../database/seeders/06-add-professors');
+const enrollmentSeed = require('../../database/seeders/07-add-enrollments');
+const lecturerSeed = require('../../database/seeders/08-add-classes');
+const resultSeed = require('../../database/seeders/09-add-results');
 
 module.exports = {
   majorTest: async function (queryInterface) {
