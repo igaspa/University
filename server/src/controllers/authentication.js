@@ -32,7 +32,7 @@ exports.login = async (req, res) => {
     if (match) {
       createToken(user, req, res);
     } else {
-      throw new ValidationError('Wrong credential');
+      throw new ValidationError('Wrong credentials were entered');
     }
   });
 };

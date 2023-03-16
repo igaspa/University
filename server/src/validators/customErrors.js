@@ -13,7 +13,7 @@ class AuthorizationError extends Error {
 
 class NotFoundError extends Error {
   constructor () {
-    super('Item does not exist');
+    super('Requested resource does not exist');
     this.name = 'NotFoundError';
   }
 }

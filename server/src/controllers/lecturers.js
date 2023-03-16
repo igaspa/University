@@ -36,7 +36,7 @@ exports.getLecturer = async (req, res) => {
   };
 
   const oneItem = await lecturer.findOne(query);
-  if (!oneItem) throw new NotFoundError('Resource does not exist');
+  if (!oneItem) throw new NotFoundError();
   res.status(200).json(oneItem);
 };
 
