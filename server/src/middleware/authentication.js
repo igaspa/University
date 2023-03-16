@@ -20,7 +20,7 @@ exports.authenticateToken = async (req, res, next) => {
     }
   } else if (decodedToken.role === 'professor') {
     const foundExam = await exam.findOne({
-      where: { id: req.params.secondId }
+      where: { id: req.params.secondId || req.body.examId }
     });
     if (!foundExam) {
       throw new NotFoundError();

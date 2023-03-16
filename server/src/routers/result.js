@@ -74,7 +74,7 @@ router.post('/', /* #swagger.tags = ["Result"]
     ]
   }
 }
-*/ validateResult, callbackErrorHandler(createResult));
+*/ validateResult, callbackErrorHandler(authenticateToken), verifyRoles('professor'), callbackErrorHandler(createResult));
 router.put('/:firstId/:secondId',
 /* #swagger.tags = ["Result"]
  #swagger.parameters["result_body"] = {
