@@ -1,6 +1,5 @@
-const { AuthorizationError, NotFoundError } = require('../validators/customErrors');
+const { AuthorizationError } = require('../validators/customErrors');
 const jwt = require('jsonwebtoken');
-const { exam, lecturer } = require('../database/models');
 
 exports.authenticateToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -14,24 +13,6 @@ exports.authenticateToken = async (req, res, next) => {
     id: decodedToken.id,
     role: decodedToken.role
   };
-  if (decodedToken.role === 'student') {
-    if (decodedToken.id !== parseInt(req.params.firstId)) {
-      throw new AuthorizationError();
-    }
-  } else if (decodedToken.role === 'professor') {
-    const foundExam = await exam.findOne({
-      where: { id: req.params.secondId || req.body.examId }
-    });
-    if (!foundExam) {
-      throw new NotFoundError();
-    }
-    const foundLecturer = await lecturer.findOne({
-      where: { professorId: decodedToken.id, courseId: foundExam.courseId }
-    });
-    if (!foundLecturer) {
-      throw new AuthorizationError();
-    }
-  }
   next();
 };
 
