@@ -8,12 +8,12 @@ module.exports = {
         allowNull: false
       },
       student_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false
       },
       exam_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false
       },

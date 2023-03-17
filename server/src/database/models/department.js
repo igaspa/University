@@ -27,8 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   department.init({
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID
+    },
     name: DataTypes.STRING,
-    majorId: DataTypes.INTEGER,
+    majorId: DataTypes.UUID,
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

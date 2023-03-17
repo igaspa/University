@@ -27,8 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   enrollment.init({
-    studentId: DataTypes.INTEGER,
-    courseId: DataTypes.INTEGER,
+    studentId: DataTypes.UUID,
+    courseId: DataTypes.UUID,
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

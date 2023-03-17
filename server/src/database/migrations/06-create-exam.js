@@ -5,9 +5,8 @@ module.exports = {
     await queryInterface.createTable('exam', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID
       },
       name: {
         type: Sequelize.STRING,
@@ -17,7 +16,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       course_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: true
       },
       deleted: {

@@ -4,12 +4,12 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('enrollment', {
       student_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false
       },
       course_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false
       },

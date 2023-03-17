@@ -50,9 +50,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   course.init({
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID
+    },
     name: DataTypes.STRING,
     creditHours: DataTypes.INTEGER,
-    majorId: DataTypes.INTEGER,
+    majorId: DataTypes.UUID,
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

@@ -33,12 +33,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   exam.init({
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID
+    },
     name: DataTypes.STRING,
     date: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    courseId: DataTypes.INTEGER,
+    courseId: DataTypes.UUID,
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

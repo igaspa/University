@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   major.init({
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID
+    },
     name: DataTypes.STRING,
     deleted: {
       type: DataTypes.BOOLEAN,

@@ -52,13 +52,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   student.init({
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID
+    },
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     address: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
-    majorId: DataTypes.INTEGER,
+    majorId: DataTypes.UUID,
     role: {
       type: DataTypes.VIRTUAL,
       get () {

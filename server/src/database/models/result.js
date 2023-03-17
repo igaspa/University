@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   result.init({
     grade: DataTypes.INTEGER,
-    studentId: DataTypes.INTEGER,
-    examId: DataTypes.INTEGER,
+    studentId: DataTypes.UUID,
+    examId: DataTypes.UUID,
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
