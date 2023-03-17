@@ -1,6 +1,6 @@
 const { lecturer, professor, course } = require('../database/models');
 const crudController = require('./crud');
-const { INCLUDE_USER_LIST, INCLUDE_NAME } = require('../utils/helper');
+const { INCLUDE_USER_LIST, INCLUDE_NAME, EXCLUDE_LIST } = require('../utils/helper');
 const { NotFoundError } = require('../validators/customErrors');
 
 exports.getAllLecturers = async (req, res) => {

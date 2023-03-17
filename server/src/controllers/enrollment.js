@@ -1,6 +1,6 @@
 const { enrollment, student, course } = require('../database/models');
 const crudController = require('./crud');
-const { INCLUDE_USER_LIST, INCLUDE_NAME } = require('../utils/helper');
+const { INCLUDE_USER_LIST, INCLUDE_NAME, EXCLUDE_LIST } = require('../utils/helper');
 const { NotFoundError } = require('../validators/customErrors');
 
 exports.getAllEnrollments = async (req, res) => {
@@ -36,7 +36,7 @@ exports.getEnrollment = async (req, res) => {
     attributes: { exclude: EXCLUDE_LIST }
   };
 
-  const oneItem = await lecturer.findOne(query);
+  const oneItem = await enrollment.findOne(query);
   if (!oneItem) throw new NotFoundError();
   res.status(200).json(oneItem);
 };
