@@ -8,7 +8,6 @@ exports.authenticateToken = async (req, res, next) => {
     throw new AuthorizationError();
   }
   const decodedToken = jwt.verify(token, process.env.SECRETTOKEN);
-  console.log(decodedToken);
   req.user = {
     id: decodedToken.id,
     role: decodedToken.role
@@ -24,6 +23,6 @@ exports.verifyRoles = (...allowedRole) => {
     // Go through all included roles and find ones that are included
     const result = req.user.role.split(' ').map(role => rolesArray.includes(role)).find(val => val === true);
     if (!result) { throw new AuthorizationError(); }
-    return next();
+    next();
   };
 };
