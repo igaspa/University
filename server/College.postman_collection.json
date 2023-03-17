@@ -1,0 +1,1375 @@
+{
+	"info": {
+		"_postman_id": "f5a29fd2-41d6-4606-8e87-7256281fb113",
+		"name": "College",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24878283"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Get All Students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\": \"nmackney1c@oaic.gov.au\",\n    \"password\": \"4rc5zLo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/students?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"students"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/students/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"students",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e0a79e8f-db1b-49fa-b612-00bc913ea61c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"c0aa3e4e-1704-4a11-9758-10787dfdecc9\",\n    \"firstName\": \"Jorge\",\n    \"lastName\": \"Middco\",\n    \"password\": \"test\",\n    \"email\": \"test@example.com\",\n    \"address\": \"PO Box 14747\",\n    \"phoneNumber\": \"68331999275\",\n    \"majorId\": \"5b006c6e-f989-4ded-9172-b78c92994605\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/students",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"c0aa3e4e-1704-4a11-9758-10787dfdecc9\",\n    \"firstName\": \"Jorge\",\n    \"lastName\": \"Middco\",\n    \"password\": \"test\",\n    \"email\": \"test@example.com\",\n    \"address\": \"PO Box 1477\",\n    \"phoneNumber\": \"68331999275\",\n    \"majorId\": \"5b006c6e-f989-4ded-9172-b78c92994605\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/students/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"students",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c0aa3e4e-1704-4a11-9758-10787dfdecc9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/students/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"students",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c0aa3e4e-1704-4a11-9758-10787dfdecc9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Get All Professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/professors?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"professors"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Professor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/professors/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"professors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "29a20520-a12f-46a2-8576-e08583a1124c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Professor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3382024b-622e-40fa-adc0-e234194ffd2c\",\n    \"firstName\": \"Jorge\",\n    \"lastName\": \"Middco\",\n    \"password\": \"test\",\n    \"email\": \"tes@example.com\",\n    \"address\": \"PO Box 14747\",\n    \"phoneNumber\": \"68331999275\",\n    \"departmentId\": \"9da09fc2-be1e-481a-b9d6-e071439e06d4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/professors",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"professors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Professor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3382024b-622e-40fa-adc0-e234194ffd2c\",\n    \"firstName\": \"Jorge\",\n    \"lastName\": \"Middco\",\n    \"password\": \"test\",\n    \"email\": \"tes@example.com\",\n    \"address\": \"PO Box 14747\",\n    \"phoneNumber\": \"68331999275\",\n    \"departmentId\": \"9da09fc2-be1e-481a-b9d6-e071439e06d4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/professors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"professors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3382024b-622e-40fa-adc0-e234194ffd2c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/professors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"professors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3382024b-622e-40fa-adc0-e234194ffd2c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Get All Departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/departments?page=1&name=d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"departments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/departments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ba66a1a9-68f0-4f20-a9d0-d812f0759e73"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Department",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5f00d938-fe9f-4867-b3a1-59d0832cd0ee\",\n    \"name\": \"Scina\",\n    \"majorId\":\"5b006c6e-f989-4ded-9172-b78c92994605\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/departments",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"departments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5f00d938-fe9f-4867-b3a1-59d0832cd0ee\",\n    \"name\": \"Scina\",\n    \"majorId\":\"5b006c6e-f989-4ded-9172-b78c92994605\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/departments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5f00d938-fe9f-4867-b3a1-59d0832cd0ee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/departments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5f00d938-fe9f-4867-b3a1-59d0832cd0ee"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Majors",
+			"item": [
+				{
+					"name": "Get All Majors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/majors?page=1&name=a",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"majors"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Major",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/majors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"majors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5419ce7d-c415-480d-a980-cd169559bc85"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Major",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"5a96cde1-507e-4a58-9760-3e90b1a543ce\",\n\"name\":\"something\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/majors",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"majors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Major",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"5a96cde1-507e-4a58-9760-3e90b1a543ce\",\n\"name\":\"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/majors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"majors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5a96cde1-507e-4a58-9760-3e90b1a543ce"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Major",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/majors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"majors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5a96cde1-507e-4a58-9760-3e90b1a543ce"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/courses?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/courses/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"courses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8fa50742-1a31-467d-a08f-c443c62c6415"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1803fbf7-b04e-4e7f-a2a5-7277e8625f28\",\n    \"name\": \"Introduction to Development\",\n    \"creditHours\": 2,\n    \"majorId\": \"8973efc4-e397-46bf-a623-d67fc1b0b3b1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1803fbf7-b04e-4e7f-a2a5-7277e8625f28\",\n    \"name\": \"Introduction to Development\",\n    \"creditHours\": 2,\n    \"majorId\": \"8973efc4-e397-46bf-a623-d67fc1b0b3b1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/courses/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"courses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1803fbf7-b04e-4e7f-a2a5-7277e8625f28"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/courses/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"courses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1803fbf7-b04e-4e7f-a2a5-7277e8625f28"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollments",
+			"item": [
+				{
+					"name": "Get All Enrollments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/enrollments?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"enrollments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Enrollment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/enrollments/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"enrollments",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "bbbafd6a-9398-4354-993f-0bbe6516a32c"
+								},
+								{
+									"key": "secondId",
+									"value": "259f8f0a-ad49-4e74-836d-6854621f0dae"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Enrollment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentId\": \"e0a79e8f-db1b-49fa-b612-00bc913ea61c\",\n    \"courseId\": \"259f8f0a-ad49-4e74-836d-6854621f0dae\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/enrollments",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"enrollments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student's Enrollment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/enrollments/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"enrollments",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "e0a79e8f-db1b-49fa-b612-00bc913ea61c"
+								},
+								{
+									"key": "secondId",
+									"value": "259f8f0a-ad49-4e74-836d-6854621f0dae"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lecturer",
+			"item": [
+				{
+					"name": "Get All Lecturers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/lecturers?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"lecturers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/lecturers/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"lecturers",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "cde7ef34-f15f-47d7-9dbb-4a19e6a66982"
+								},
+								{
+									"key": "secondId",
+									"value": "8fa50742-1a31-467d-a08f-c443c62c6415"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"professorId\": \"0f4f262c-36b6-4dd6-aa7d-2b5226ca0e23\",\n    \"courseId\": \"8fa50742-1a31-467d-a08f-c443c62c6415\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/lecturers",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"lecturers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Class",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/lecturers/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"lecturers",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "0f4f262c-36b6-4dd6-aa7d-2b5226ca0e23"
+								},
+								{
+									"key": "secondId",
+									"value": "8fa50742-1a31-467d-a08f-c443c62c6415"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exams",
+			"item": [
+				{
+					"name": "Get All Exams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/exams?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"exams"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/exams/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"exams",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d871cd3b-47f7-4b2f-b72f-b605728be2da"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"94e9b56a-6db1-4b64-a48c-e5cc70c98b03\",\n    \"name\": \"Exam 1\",\n    \"date\": \"2023-05-13\",\n    \"courseId\": \"8fa50742-1a31-467d-a08f-c443c62c6415\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/exams",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Exam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"94e9b56a-6db1-4b64-a48c-e5cc70c98b03\",\n    \"name\": \"Exam 1\",\n    \"date\": \"2023-05-05 12:30:00\",\n    \"courseId\": \"8fa50742-1a31-467d-a08f-c443c62c6415\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/exams/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"exams",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "94e9b56a-6db1-4b64-a48c-e5cc70c98b03"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Exam",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/exams/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"exams",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "94e9b56a-6db1-4b64-a48c-e5cc70c98b03"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Results",
+			"item": [
+				{
+					"name": "Get All Results",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/results?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"results"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Result",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4000/results/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"results",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "bbbafd6a-9398-4354-993f-0bbe6516a32c"
+								},
+								{
+									"key": "secondId",
+									"value": "d871cd3b-47f7-4b2f-b72f-b605728be2da"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Result",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grade\": 5,\n    \"studentId\": \"e0a79e8f-db1b-49fa-b612-00bc913ea61c\",\n    \"examId\": \"7d9ed69a-39ff-4a86-9fa3-2267e6a284ce\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/results",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"results"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Result",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grade\": 4,\n    \"studentId\": \"fa06cffd-5214-4dbc-bc0b-dae11315d4cd\",\n    \"examId\": \"7d9ed69a-39ff-4a86-9fa3-2267e6a284ce\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/results/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"results",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "fa06cffd-5214-4dbc-bc0b-dae11315d4cd"
+								},
+								{
+									"key": "secondId",
+									"value": "7d9ed69a-39ff-4a86-9fa3-2267e6a284ce"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Result",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/results/:firstId/:secondId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"results",
+								":firstId",
+								":secondId"
+							],
+							"variable": [
+								{
+									"key": "firstId",
+									"value": "fa06cffd-5214-4dbc-bc0b-dae11315d4cd"
+								},
+								{
+									"key": "secondId",
+									"value": "7d9ed69a-39ff-4a86-9fa3-2267e6a284ce"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"bearer_token\", pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"professor@example.com\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
