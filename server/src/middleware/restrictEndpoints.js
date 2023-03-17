@@ -4,13 +4,15 @@ const { result, exam, lecturer } = require('../database/models');
 exports.verifyStudentResultAccess = async (req, res, next) => {
   if (!req?.user) { throw new AuthorizationError(); }
 
-  const studentId = parseInt(req.params.firstId);
-  const examId = parseInt(req.params.secondId);
+  if (req.user.role === 'student') {
+    const studentId = req.params.firstId;
+    const examId = req.params.secondId;
 
-  const foundResult = await result.findOne({ where: { studentId: req.user.id, examId } });
-  if (!foundResult) throw new NotFoundError();
+    const foundResult = await result.findOne({ where: { studentId: req.user.id, examId } });
+    if (!foundResult) throw new NotFoundError();
 
-  if (foundResult.studentId !== studentId) { throw new AuthorizationError(); }
+    if (foundResult.studentId !== studentId) { throw new AuthorizationError(); }
+  }
 
   next();
 };
@@ -18,18 +20,20 @@ exports.verifyStudentResultAccess = async (req, res, next) => {
 exports.verifyProfessorResultAccess = async (req, res, next) => {
   if (!req?.user) { throw new AuthorizationError(); }
 
-  const examId = parseInt(req.params.secondId || req.body.examId);
+  if (req.user.role === 'professor') {
+    const examId = req.params.secondId || req.body.examId;
 
-  const foundExam = await exam.findOne({ where: examId });
-  if (!foundExam) throw new NotFoundError();
+    const foundExam = await exam.findOne({ where: { id: examId } });
+    if (!foundExam) throw new NotFoundError();
 
-  const professorId = req.user.id;
-  const courseId = foundExam.courseId;
+    const professorId = req.user.id;
+    const courseId = foundExam.courseId;
 
-  const foundLecturer = await lecturer.findOne({ where: { professorId, courseId } });
+    const foundLecturer = await lecturer.findOne({ where: { professorId, courseId } });
 
-  if (!foundLecturer) {
-    throw new AuthorizationError();
+    if (!foundLecturer) {
+      throw new AuthorizationError();
+    }
   }
   next();
 };
